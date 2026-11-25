@@ -1,6 +1,11 @@
 #include "core/fixed.hpp"
 #include "core/config.hpp"
 
+#include "core/ai/AiManager.hpp"
+#include "core/battle/BattleContext.hpp"
+#include "core/story/StoryManager.hpp"
+#include "core/world/World.hpp"
+
 #include "platform/pc/PcDisplay.hpp"
 #include "platform/pc/PcInput.hpp"
 #include "platform/pc/PcAudio.hpp"
@@ -23,6 +28,12 @@ int run() {
     PcTimer timer;
     PcStorage storage;
 
+    world::World world;
+    story::StoryManager story;
+    ai::AiManager ai(story);
+    battle::CombatantStats playerStats;
+    battle::CombatantStats enemyStats;
+
     bool running = true;
     std::int32_t frameLimit = 120; // スタブ: 120 フレームで終了（実機ではゲームループ）
     while (running && frameLimit-- > 0) {
@@ -35,6 +46,11 @@ int run() {
 
         display.clear();
         // TODO(ryo): core のゲームロジック（ワールド、物語、戦闘）をここで更新・描画する。
+        (void)world;
+        (void)story;
+        (void)ai;
+        (void)playerStats;
+        (void)enemyStats;
         display.present();
 
         timer.endFrame();
