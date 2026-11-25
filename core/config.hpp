@@ -15,7 +15,8 @@ constexpr std::uint16_t max_map_height = 64;  // マップ高最大（タイル�
 constexpr std::uint16_t max_story_flags = 256;// 物語フラグの最大数
 constexpr std::uint16_t max_bookmarks = 16;   // 栞（セーブスロット）の最大数
 constexpr std::uint16_t max_choice_history = 64; // 選択履歴の最大数
-constexpr std::uint16_t max_ai_history = 32;   // 案内人 AI が記録する履歴の最大数
+constexpr std::uint16_t max_ai_history = 32;     // 案内人 AI が記録する履歴の最大数
+constexpr std::uint16_t max_inventory_items = 8; // 所持品アイテムの最大数
 
 } // namespace shiori::config
 
