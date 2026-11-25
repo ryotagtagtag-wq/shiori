@@ -162,11 +162,19 @@ def read_wav_mono_16bit(path: Path) -> list[int]:
         raise ValueError(f"Only PCM format supported (got {audio_format})")
 
     if bits_per_sample == 16:
-        if num_channels != 1:
-            raise ValueError(f"Only mono supported for 16-bit (got {num_channels} channels)")
-        # リトルエンディアン16bit符号付き整数として解釈
-        samples = list(struct.unpack(f"<{len(audio_data) // 2}h", audio_data))
-        return samples
+        if num_channels == 1:
+            # リトルエンディアン16bit符号付き整数として解釈
+            samples = list(struct.unpack(f"<{len(audio_data) // 2}h", audio_data))
+            return samples
+        elif num_channels == 2:
+            # ステレオをモノラルにダウンミックス（左右平均）
+            samples_raw = list(struct.unpack(f"<{len(audio_data) // 2}h", audio_data))
+            samples: list[int] = []
+            for i in range(0, len(samples_raw), 2):
+                samples.append((samples_raw[i] + samples_raw[i + 1]) // 2)
+            return samples
+        else:
+            raise ValueError(f"Only mono or stereo supported for 16-bit (got {num_channels} channels)")
     elif bits_per_sample == 24:
         return read_wav_24bit_mono(path)
     else:
