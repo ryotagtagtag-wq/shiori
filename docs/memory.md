@@ -9,3 +9,4 @@
 |---|---|---|---|---|---|
 | 2026-11-25 | 初期スキャフォールド | 未計測 | 未計測 | PC ビルド成功（g++ -Wall -Wextra -Werror、警告ゼロ）。arm-none-eabi-size 未導入のため実機計測は未実施 | impl |
 | 2026-11-25 | ゲームブーノスタブ (pio build, arduino_zero/adafruit_metro_m0 代用) | 2648 bytes (8.1%) | 11244 bytes (4.3%) | pio run -e gamebuino_meta 成功。70% 閾値を大幅に下回る | impl |
+| 2026-11-25 | ゲームブーノ core ゲームロジック追加後 (pio build) | 2648 bytes (8.1%) | 11244 bytes (4.3%) | ヘッダーオンリー実装のためメモリ変化なし。70% 閾値を大幅に下回る | impl |
