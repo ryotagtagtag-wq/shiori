@@ -1,0 +1,13 @@
+# PlatformIO / build artifacts
+.pio/
+build/
+*.bin
+*.elf
+*.hex
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
