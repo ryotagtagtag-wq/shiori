@@ -2,6 +2,7 @@
 // TODO(ryo): Gamebuino-META の入力・描画・セーブと core ゲームロジックを連携させる。
 
 #include "core/ai/AiManager.hpp"
+#include "core/audio/ImaAdpcmDecoder.hpp"
 #include "core/battle/BattleContext.hpp"
 #include "core/story/StoryManager.hpp"
 #include "core/world/World.hpp"
@@ -25,6 +26,7 @@ static story::StoryManager story;
 static ai::AiManager ai(story);
 static battle::CombatantStats playerStats;
 static battle::CombatantStats enemyStats;
+static audio::ImaAdpcmDecoder decoder;
 
 } // namespace shiori::platform::gamebuino
 
@@ -48,6 +50,7 @@ void loop() {
     (void)ai;
     (void)playerStats;
     (void)enemyStats;
+    (void)decoder;
 }
 
 } // extern "C"
