@@ -2,6 +2,7 @@
 #include "core/config.hpp"
 
 #include "core/ai/AiManager.hpp"
+#include "core/audio/ImaAdpcmDecoder.hpp"
 #include "core/battle/BattleContext.hpp"
 #include "core/story/StoryManager.hpp"
 #include "core/world/World.hpp"
@@ -33,6 +34,7 @@ int run() {
     ai::AiManager ai(story);
     battle::CombatantStats playerStats;
     battle::CombatantStats enemyStats;
+    audio::ImaAdpcmDecoder decoder;
 
     bool running = true;
     std::int32_t frameLimit = 120; // スタブ: 120 フレームで終了（実機ではゲームループ）
@@ -51,6 +53,7 @@ int run() {
         (void)ai;
         (void)playerStats;
         (void)enemyStats;
+        (void)decoder;
         display.present();
 
         timer.endFrame();
